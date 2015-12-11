@@ -58,7 +58,7 @@ func (i *TCPInput) listen(address string) {
 func (i *TCPInput) handleConnection(conn net.Conn) {
 	defer conn.Close()
 
-	reader := bufio.NewReader(conn)
+	reader := bufio.NewReaderSize(conn, 5*1024*1024)
 	scanner := bufio.NewScanner(reader)
 	scanner.Split(payloadScanner)
 
