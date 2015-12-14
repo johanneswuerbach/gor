@@ -58,12 +58,7 @@ func (i *TCPInput) listen(address string) {
 func (i *TCPInput) handleConnection(conn net.Conn) {
 	defer conn.Close()
 
-	scanner := &bufio.Scanner{
-		r:            conn,
-		split:        ScanLines,
-		maxTokenSize: 5 * 1024 * 1024,
-		buf:          make([]byte, 4096),
-	}
+	scanner := NewScanner(conn)
 	scanner.Split(payloadScanner)
 
 	for scanner.Scan() {
