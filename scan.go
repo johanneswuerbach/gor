@@ -71,6 +71,8 @@ const (
 	MaxScanTokenSize = 5 * 1024 * 1024
 )
 
+const maxConsecutiveEmptyReads = 100
+
 // NewScanner returns a new Scanner to read from r.
 // The split function defaults to ScanLines.
 func NewScanner(r io.Reader) *Scanner {
