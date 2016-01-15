@@ -85,7 +85,7 @@ func (m *Middleware) copy(to io.Writer, from io.Reader) {
 }
 
 func (m *Middleware) read(from io.Reader) {
-	scanner := bufio.NewScanner(from)
+	scanner := NewScanner(from)
 
 	for scanner.Scan() {
 		bytes := scanner.Bytes()

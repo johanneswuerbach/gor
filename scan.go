@@ -68,7 +68,7 @@ const (
 	// MaxScanTokenSize is the maximum size used to buffer a token.
 	// The actual maximum token size may be smaller as the buffer
 	// may need to include, for instance, a newline.
-	MaxScanTokenSize = 5 * 1024 * 1024
+	MaxScanTokenSize = 10 * 1024 * 1024
 )
 
 const maxConsecutiveEmptyReads = 100
